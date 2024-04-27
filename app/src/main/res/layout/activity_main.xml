@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/cameraView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startButton"
+        android:text="FILTRO CANNY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cameraView"
+        app:layout_constraintVertical_bias="0.2"
+        android:backgroundTint="#D0D0D0"
+        app:cornerRadius="8dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/blurLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startButton"
+        app:layout_constraintVertical_bias="0.1"
+        >
+
+    <com.google.android.material.slider.Slider
+        android:contentDescription = "Blur Slider"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sliderBlur"
+        android:valueFrom="1"
+        android:valueTo="5"
+        android:stepSize="2"
+        android:value="3"
+        />
+
+        <TextView
+            android:id="@+id/blurVal"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/edgeLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blurLayout"
+        app:layout_constraintVertical_bias="0.1"
+        >
+
+        <com.google.android.material.slider.Slider
+            android:contentDescription = "Edge Slider"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sliderEdge"
+            android:valueFrom="0"
+            android:valueTo="100"
+            android:stepSize="1"
+            android:value="60"
+            />
+
+        <TextView
+            android:id="@+id/edgeVal"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="60"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/angleLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edgeLayout"
+        app:layout_constraintVertical_bias="0.1"
+        >
+
+        <com.google.android.material.slider.Slider
+            android:contentDescription = "Angle Slider"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sliderAngle"
+            android:valueFrom="1"
+            android:valueTo="5"
+            android:stepSize="1"
+            android:value="3"
+            />
+
+        <TextView
+            android:id="@+id/angleVal"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
